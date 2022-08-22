@@ -1,3 +1,4 @@
+// event listener for calculate button 
 
 document.getElementById('btn-calculate').addEventListener('click', function () {
     const perPlayerCost = getFloatInputValue('per-player-price');
@@ -5,17 +6,25 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
     const previousPlayerExpense = getFloatInnerText('total-player-expense');
 
+    // creating list for selected player 
     let parentNode = document.getElementById('ol');
     let directChildren = parentNode.children.length;
     if (directChildren === 0) {
         alert("You should must select minimum one player");
         return;
     }
+
+    if (perPlayerCost < 0) {
+        return;
+    }
+    // total expense for player & set the balance in text field 
     const totalPlayerExpense = perPlayerCost * directChildren;
     const setExpense = setValue('total-player-expense');
     setExpense.innerText = totalPlayerExpense;
 });
 
+
+// event listener for total calculate button 
 
 document.getElementById('btn-total-calculation').addEventListener('click', function () {
     const managerCost = getFloatInputValue('manager-cost');
@@ -28,7 +37,7 @@ document.getElementById('btn-total-calculation').addEventListener('click', funct
     const previousTotalCost = getFloatInnerText('total-cost');
 
     const totalCost = previousPlayerExpense + managerCost + coachingCost;
-    if (isNaN(totalCost)) {
+    if (isNaN(totalCost) || totalCost < 0) {
         const setTotalExpense = setValue('total-cost');
         setTotalExpense.innerText = '';
         return;

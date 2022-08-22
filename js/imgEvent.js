@@ -1,3 +1,4 @@
+// selecting player, create order list, set name & disable button 
 
 selectPlayer('btn-sakib', 'sakib');
 

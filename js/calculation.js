@@ -4,7 +4,10 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
     const previousPlayerExpense = getFloatInnerText('total-player-expense');
 
-    const totalPlayerExpense = perPlayerCost * 5;
+    let parentNode = document.getElementById('ol');
+    let directChildren = parentNode.children.length;
+    // console.log(directChildren);
+    const totalPlayerExpense = perPlayerCost * directChildren;
     const setExpense = setValue('total-player-expense');
     setExpense.innerText = totalPlayerExpense;
 }, { once: true });

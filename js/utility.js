@@ -19,15 +19,17 @@ function selectPlayer(btnId, nameId) {
     document.getElementById(btnId).addEventListener('click', function () {
         const name = getInnerText(nameId);
 
-        const newTag = document.createElement('li');
-        newTag.textContent = name;
-        ol.appendChild(newTag);
+        let directChildren = ol.children.length;
+        if (directChildren < 5) {
+            const newTag = document.createElement('li');
+            newTag.textContent = name;
+            ol.appendChild(newTag);
 
-        const btnEnable = document.getElementById(btnId);
-        btnEnable.setAttribute('disabled', true);
+            const btnEnable = document.getElementById(btnId);
+            btnEnable.setAttribute('disabled', true);
 
-        var item = document.getElementById(btnId);
-        item.setAttribute("style", "background-color:gray;");
+            var item = document.getElementById(btnId);
+            item.setAttribute("style", "background-color:gray;");
+        }
     });
-
 }

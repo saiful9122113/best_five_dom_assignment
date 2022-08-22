@@ -1,16 +1,4 @@
 
-function getFloatInputValue(id) {
-    return parseFloat(document.getElementById(id).value);
-}
-
-function getFloatInnerText(id) {
-    return parseFloat(document.getElementById(id).innerText);
-}
-
-function setValue(id) {
-    return document.getElementById(id)
-}
-
 document.getElementById('btn-calculate').addEventListener('click', function () {
     const perPlayerCost = getFloatInputValue('per-player-price');
 
@@ -33,4 +21,4 @@ document.getElementById('btn-total-calculation').addEventListener('click', funct
     const setTotalExpense = setValue('total-cost');
     setTotalExpense.innerText = totalCost;
 
-})
+}, { once: true });

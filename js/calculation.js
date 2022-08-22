@@ -5,6 +5,10 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
     validation('per-player-price', perPlayerCost);
 
     const previousPlayerExpense = getFloatInnerText('total-player-expense');
+    if (isNaN(previousPlayerExpense)) {
+        alert('You have to input number');
+        return;
+    }
 
     // creating list for selected player 
     let parentNode = document.getElementById('ol');

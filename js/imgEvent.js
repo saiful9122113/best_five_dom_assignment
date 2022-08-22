@@ -1,4 +1,6 @@
 
+selectPlayer('btn-sakib', 'sakib');
+
 selectPlayer('btn-ab', 'ab');
 
 selectPlayer('btn-amla', 'amla');
